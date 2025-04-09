@@ -2,7 +2,7 @@
 
 A MagicMirror² module that shows live metro departures using SL’s public transport API.
 
-## 🔧 Installation
+##  Installation
 
 ```bash
 cd ~/MagicMirror/modules
@@ -11,7 +11,7 @@ cd MMM-SLDepartures
 npm install node-fetch@2
 ```
 
-## 📋 Configuration
+##  Configuration
 
 Add the module to your `config.js`:
 
@@ -26,7 +26,7 @@ Add the module to your `config.js`:
 }
 ```
 
-## 🧭 SL Site IDs (Examples)
+## SL Site IDs (Examples)
 
 | Station Name        | Site ID |
 |---------------------|---------|
@@ -45,7 +45,7 @@ Add the module to your `config.js`:
 
 You can find more site IDs by using SL’s API or network inspector on their real-time departure tools.
 
-## 📦 Output Format
+##  Output Format
 
 The module displays a table with the following columns:
 - **Line** – Metro line number
@@ -53,12 +53,4 @@ The module displays a table with the following columns:
 - **Expected** – Expected departure time (e.g., `18:13:35`)
 - **Direction** – Direction label from SL API
 
-## ✅ To Do
-
-- [ ] Color-coded lines (red, green, blue)
-- [ ] Countdown mode (e.g., “in 3 min”)
-- [ ] Show platform numbers
-- [ ] Add icons for line directions
-
----
-Made for Stockholm metro ❤️
+Made for Stockholm metro 

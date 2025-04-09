@@ -6,8 +6,10 @@ Module.register("MMM-SLMonitor", {
 
   start() {
     this.departures = [];
+    this.stopName = "";
     this.getData();
     this.scheduleUpdate();
+    
   },
 
   scheduleUpdate() {
@@ -24,6 +26,7 @@ Module.register("MMM-SLMonitor", {
   socketNotificationReceived(notification, payload) {
     if (notification === "SL_DATA") {
       this.departures = payload.departures || [];
+      this.stopName = this.departures[0]?.stop_area?.name || "";
       this.updateDom();
     }
   },
@@ -34,6 +37,13 @@ Module.register("MMM-SLMonitor", {
 
   getDom() {
     const wrapper = document.createElement("div");
+
+    if (this.stopName) {
+      const title = document.createElement("div");
+      title.className = "bright medium sl-stop-name";
+      title.innerText = this.stopName;
+      wrapper.appendChild(title);
+    }
 
     const table = document.createElement("table");
     table.className = "small sl-table";
