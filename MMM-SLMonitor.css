@@ -1,0 +1,14 @@
+.sl-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sl-table th, .sl-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+.sl-table th {
+  font-weight: bold;
+}
