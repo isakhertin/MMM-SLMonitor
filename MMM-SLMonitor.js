@@ -1,7 +1,7 @@
 Module.register("MMM-SLMonitor", {
   defaults: {
-    apiUrl: "https://transport.integration.sl.se/v1/sites/9264/departures",
-    updateInterval: 60 * 1000 // every 60 seconds
+    siteId: "9264", // default: Midsommarkransen
+    updateInterval: 30 * 1000 // every 30 seconds
   },
 
   start() {
@@ -17,7 +17,8 @@ Module.register("MMM-SLMonitor", {
   },
 
   getData() {
-    this.sendSocketNotification("GET_SL_DATA", this.config.apiUrl);
+    const apiUrl = `https://transport.integration.sl.se/v1/sites/${this.config.siteId}/departures`;
+    this.sendSocketNotification("GET_SL_DATA", apiUrl);
   },
 
   socketNotificationReceived(notification, payload) {
@@ -52,7 +53,10 @@ Module.register("MMM-SLMonitor", {
       const destination = dep.destination || "";
       const display = dep.display || "";
       const direction = dep.direction || "";
-      const expected = dep.expected || "";
+
+      const time = new Date(dep.expected);
+      const expected = time.toLocaleTimeString("sv-SE", { hour12: false });
+
 
       [line, destination, display, direction, expected].forEach(text => {
         const td = document.createElement("td");
