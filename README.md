@@ -1,4 +1,4 @@
-# MMM-SLDepartures
+# MMM-SLMonitor
 
 A MagicMirror² module that shows live metro departures using SL’s public transport API.
 
@@ -6,8 +6,8 @@ A MagicMirror² module that shows live metro departures using SL’s public tran
 
 ```bash
 cd ~/MagicMirror/modules
-git clone https://github.com/yourusername/MMM-SLDepartures.git
-cd MMM-SLDepartures
+git clone git@github.com:isakhertin/MMM-SLMonitor.git
+cd MMM-SLMonitor
 npm install node-fetch@2
 ```
 
@@ -17,7 +17,7 @@ Add the module to your `config.js`:
 
 ```js
 {
-  module: "MMM-SLDepartures",
+  module: "MMM-SLMonitor",
   position: "top_left",
   config: {
     siteId: "9264",         // SL Site ID for your metro station
