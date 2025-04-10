@@ -32,7 +32,7 @@ Add the module to your `config.js`:
 |---------------------|---------|
 | Midsommarkransen    | 9264    |
 | Slussen             | 9105    |
-| T-Centralen         | 9300    |
+| T-Centralen         | 9001    |
 | Fridhemsplan        | 9322    |
 | Odenplan            | 9320    |
 | Gullmarsplan        | 9327    |

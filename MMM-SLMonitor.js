@@ -49,35 +49,58 @@ Module.register("MMM-SLMonitor", {
     table.className = "small sl-table";
 
     const headerRow = document.createElement("tr");
-    ["Line", "Destination", "Display", "Direction","Expected"].forEach(header => {
+    this.config.columns.forEach(col => {
       const th = document.createElement("th");
-      th.innerText = header;
+      th.innerText = this.getColumnLabel(col);
       headerRow.appendChild(th);
     });
     table.appendChild(headerRow);
 
     this.departures.forEach(dep => {
       const row = document.createElement("tr");
-
-      const line = dep.line?.designation || "";
-      const destination = dep.destination || "";
-      const display = dep.display || "";
-      const direction = dep.direction || "";
-
-      const time = new Date(dep.expected);
-      const expected = time.toLocaleTimeString("sv-SE", { hour12: false });
-
-
-      [line, destination, display, direction, expected].forEach(text => {
+    
+      this.config.columns.forEach(col => {
         const td = document.createElement("td");
-        td.innerText = text;
+        td.innerText = this.formatColumnValue(dep, col);
         row.appendChild(td);
       });
-
+    
       table.appendChild(row);
     });
 
     wrapper.appendChild(table);
     return wrapper;
-  }
-});
+  },
+  
+  getColumnLabel(col) {
+    const map = {
+      line: "Line",
+      destination: "Destination",
+      expected: "Expected",
+      direction: "Direction",
+      display: "Display"
+    };
+    return map[col] || col;
+  },
+  
+  formatColumnValue(dep, col) {
+    switch (col) {
+      case "line":
+        return dep.line?.designation || "";
+        case "destination":
+          return dep.destination || "";
+          case "expected":
+            if (dep.expected) {
+              const time = new Date(dep.expected);
+              return time.toLocaleTimeString("sv-SE", { hour12: false });
+            }
+            return "";
+            case "display":
+              return dep.display || "";
+              case "direction":
+                return dep.direction || "";
+                default:
+                  return "";
+                }
+              }
+  });
