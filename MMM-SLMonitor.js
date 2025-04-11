@@ -1,7 +1,8 @@
 Module.register("MMM-SLMonitor", {
   defaults: {
     siteId: "9264", // default: Midsommarkransen
-    updateInterval: 30 * 1000 // every 30 seconds
+    updateInterval: 30 * 1000, // every 30 seconds
+    maxRows: 10 // max number of departures to show
   },
 
   start() {
@@ -56,7 +57,7 @@ Module.register("MMM-SLMonitor", {
     });
     table.appendChild(headerRow);
 
-    this.departures.forEach(dep => {
+    this.departures.slice(0, this.config.maxRows).forEach(dep => {
       const row = document.createElement("tr");
     
       this.config.columns.forEach(col => {

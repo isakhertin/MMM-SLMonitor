@@ -17,13 +17,15 @@ Add the module to your `config.js`:
 
 ```js
 {
-  module: "MMM-SLMonitor",
-  position: "top_left",
-  config: {
-    siteId: "9264",         // SL Site ID for your metro station
-    updateInterval: 60000   // Update frequency in milliseconds (default: 60 seconds)
-  }
-}
+			module: "MMM-SLMonitor",
+			position: "top_center",
+			config: {
+				siteId: "9001", // SiteId, see Sites/SideID.md
+				columns: ["line", "destination", "expected", "display",  "direction"], // columns that will be shown
+				updateInterval: 30000, // in milliseconds
+				maxRows: 10, // Number of rows in table
+			}
+		},
 ```
 
 ## SL Site IDs (Examples)
@@ -31,19 +33,21 @@ Add the module to your `config.js`:
 | Station Name        | Site ID |
 |---------------------|---------|
 | Midsommarkransen    | 9264    |
-| Slussen             | 9105    |
+| Slussen             | 9192    |
 | T-Centralen         | 9001    |
-| Fridhemsplan        | 9322    |
-| Odenplan            | 9320    |
-| Gullmarsplan        | 9327    |
-| Skanstull           | 9326    |
-| Zinkensdamm         | 9266    |
-| Hornstull           | 9265    |
-| Liljeholmen         | 9263    |
-| Fruängen            | 9283    |
-| Mörby Centrum       | 9231    |
+| Fridhemsplan        | 9115    |
+| Odenplan            | 1079    |
+| Gullmarsplan        | 9189    |
+| Skanstull           | 9190    |
+| Zinkensdamm         | 9296    |
+| Hornstull           | 9295    |
+| Liljeholmen         | 9294    |
+| Fruängen            | 9260    |
+| Mörby Centrum       | 9200    |
 
 You can find more site IDs by using SL’s API or network inspector on their real-time departure tools.
+
+See full list of SiteID:s [Link Text](Sites/SiteID.md)
 
 ##  Output Format
 
