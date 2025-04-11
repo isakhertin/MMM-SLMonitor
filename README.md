@@ -2,6 +2,9 @@
 
 A MagicMirror² module that shows live metro departures using SL’s public transport API.
 
+## Screenshot
+![Screenshot](image.png)
+
 ##  Installation
 
 ```bash
