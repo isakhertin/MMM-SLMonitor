@@ -17,15 +17,15 @@ Add the module to your `config.js`:
 
 ```js
 {
-			module: "MMM-SLMonitor",
-			position: "top_center",
-			config: {
-				siteId: "9001", // SiteId, see Sites/SideID.md
-				columns: ["line", "destination", "expected", "display",  "direction"], // columns that will be shown
-				updateInterval: 30000, // in milliseconds
-				maxRows: 10, // Number of rows in table
-			}
-		},
+  module: "MMM-SLMonitor",
+  position: "top_center",
+  config: {
+    siteId: "9001", // SiteId, see Sites/SideID.md
+    columns: ["line", "destination", "expected", "display",  "direction"], // columns that will be shown
+    updateInterval: 30000, // in milliseconds
+    maxRows: 10, // Number of rows in table
+  }
+}
 ```
 
 ## SL Site IDs (Examples)
@@ -47,7 +47,7 @@ Add the module to your `config.js`:
 
 You can find more site IDs by using SL’s API or network inspector on their real-time departure tools.
 
-See full list of SiteID:s [Link Text](Sites/SiteID.md)
+See full list of SiteID:s here:  [SiteID.md](Sites/SiteID.md)
 
 ##  Output Format
 
